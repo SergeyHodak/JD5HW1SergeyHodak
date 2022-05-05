@@ -3,6 +3,14 @@ import org.junit.jupiter.api.Test;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+//why we do calculation here like 3.0+1.25? I think we are smart enough to use already result
+//all explanation regarding the value should contain the variable name
+
+
+//It's nice to use some suffix lite test in names your tests like priceOfOneUniOfGoodsTest()
+
+//As I mentioned in GroceryStore class it would be great to create more classes and use Mockito library here
+//It's very important library and you will work with it a lot in the future, so you have to learn it now ;)
 public class GroceryStoreTests {
 
     @Test

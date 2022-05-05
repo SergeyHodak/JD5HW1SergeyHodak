@@ -1,3 +1,6 @@
+
+//it's not the best idea using Enum here
+//we can use POJO to describe a Product and create with necessary params
 public enum Products {
     A(1.25, 3, 3),
     B(4.25, 0, 0),
