@@ -3,6 +3,8 @@ package Shop.GroceryStore.Products;
 import java.util.List;
 
 public class Products {
+    //we have to use the private access type and getters/setters for access
+    //80% on your job interview someone will ask you about OOP paradigm, encapsulation is one of them
     public List<Product> products;
 
     public Products() {

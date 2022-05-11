@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CalculatorProducts {
+
+    //following the name convention the name of a method should be a verb
     public Map<String, Integer> numberOfItemsInTheCart(String products) {
         Map<String, Integer> units = new HashMap<>();
         char[] titles = products.toCharArray();

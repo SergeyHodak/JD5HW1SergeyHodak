@@ -6,8 +6,11 @@ import Shop.GroceryStore.Products.Products;
 import java.util.Map;
 
 public class CalculatorPrice {
+    //following the name convention the name of a method should be a verb
     public double price(Map<String, Integer> shoppingCart) {
         double price = 0;
+        //It's actually a bad practice using new Products() inside method. Each time when we need calculate anything you
+        //will create a new object. You should avoid it for example get the products list in method argument
         for (Product product : new Products().products) {
             if (shoppingCart.containsKey(product.getName())) {
                 int action = product.getQuantitySelling();
