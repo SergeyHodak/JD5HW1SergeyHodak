@@ -1,5 +1,6 @@
 import Shop.GroceryStore.Calculator.CalculatorPrice;
 import Shop.GroceryStore.Calculator.CalculatorProducts;
+import Shop.GroceryStore.Products.Products;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -7,9 +8,10 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-
-//As I mentioned in GroceryStore class it would be great to create more classes and use Mockito library here
-public class GroceryStoreTestsJunit {
+public class JunitGroceryStoreMethods {
+    CalculatorProducts calculatorProducts = new CalculatorProducts();
+    CalculatorPrice calculatorPrice = new CalculatorPrice();
+    Products units = new Products();
 
     @Test
     public void isThisItemRegistered() {
@@ -23,7 +25,7 @@ public class GroceryStoreTestsJunit {
         products.put("E", false);
         products.put("\n", false);
         products.forEach((input, output) -> {
-            Assertions.assertEquals(output, CalculatorProducts.isItAProduct(input));
+            Assertions.assertEquals(output, units.isProduct(input));
         });
     }
 
@@ -37,7 +39,7 @@ public class GroceryStoreTestsJunit {
         products.put("A s d f e 0 9 B", 2);
         products.forEach((input, output) -> {
             int sum = 0;
-            for (java.lang.Integer integer : CalculatorProducts.numberOfItemsInTheCart(input).values()) {
+            for (java.lang.Integer integer : calculatorProducts.numberOfItemsInTheCart(input).values()) {
                 int valueOf = integer;
                 sum += valueOf;
             }
@@ -53,7 +55,7 @@ public class GroceryStoreTestsJunit {
         input.put("C", 1);
         input.put("D", 1);
         double output = 7.25;
-        Assertions.assertEquals(output, CalculatorPrice.price(input));
+        Assertions.assertEquals(output, calculatorPrice.price(input));
     }
 
     @Test
@@ -64,9 +66,8 @@ public class GroceryStoreTestsJunit {
         input.put("C", 5);
         input.put("D", 22);
         double output = 151.5;
-        Assertions.assertEquals(output, CalculatorPrice.price(input));
+        Assertions.assertEquals(output, calculatorPrice.price(input));
     }
-
 
     @Test
     public void actionOfPromotionsOnProducts() {
@@ -89,7 +90,7 @@ public class GroceryStoreTestsJunit {
         testInput.put(inputB, outputB);
 
         testInput.forEach((input, output) -> {
-            Assertions.assertEquals(output, CalculatorPrice.price(input));
+            Assertions.assertEquals(output, calculatorPrice.price(input));
         });
     }
 }
