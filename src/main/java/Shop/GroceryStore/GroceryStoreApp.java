@@ -2,16 +2,19 @@ package Shop.GroceryStore;
 
 import Shop.GroceryStore.Calculator.CalculatorPrice;
 import Shop.GroceryStore.Calculator.CalculatorProducts;
+import Shop.GroceryStore.Products.Products;
 
-import java.util.Map;
+import java.util.HashMap;
 
 public class GroceryStoreApp {
-    public CalculatorProducts calculatorProducts = new CalculatorProducts();
-    public CalculatorPrice calculatorPrice = new CalculatorPrice();
+    private final CalculatorProducts calculatorProducts = new CalculatorProducts();
+    private final CalculatorPrice calculatorPrice = new CalculatorPrice();
+    private final Products productsInShop = new Products();
 
     public double calculateTotalCost(String products) {
-        Map<String, Integer> shoppingCart = calculatorProducts.numberOfItemsInTheCart(products);
-        return calculatorPrice.price(shoppingCart);
+        HashMap<String, Integer> shoppingCart =
+                calculatorProducts.productsCountingInCart(products, productsInShop);
+        return calculatorPrice.priceCalculation(shoppingCart, productsInShop);
     }
 
     public static void main(String[] args) {

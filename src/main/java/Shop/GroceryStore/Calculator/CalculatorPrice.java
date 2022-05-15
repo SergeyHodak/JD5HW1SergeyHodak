@@ -3,18 +3,16 @@ package Shop.GroceryStore.Calculator;
 import Shop.GroceryStore.Products.Product;
 import Shop.GroceryStore.Products.Products;
 
-import java.util.Map;
+import java.util.HashMap;
 
 public class CalculatorPrice {
-    //following the name convention the name of a method should be a verb
-    public double price(Map<String, Integer> shoppingCart) {
+    public double priceCalculation(HashMap<String, Integer> shoppingCart, Products products) {
         double price = 0;
-        //It's actually a bad practice using new Products() inside method. Each time when we need calculate anything you
-        //will create a new object. You should avoid it for example get the products list in method argument
-        for (Product product : new Products().products) {
-            if (shoppingCart.containsKey(product.getName())) {
-                int action = product.getQuantitySelling();
-                int amountProduct = shoppingCart.get(product.getName());
+        for (Product product : products.getProducts()) {
+            String nameProduct = product.getName();
+            if (shoppingCart.containsKey(nameProduct)) {
+                int action = product.getQuantityOfGoodsThatActivateThePromotion();
+                int amountProduct = shoppingCart.get(nameProduct);
                 if (action == 0 | action > amountProduct) {
                     price += amountProduct * product.getPrice();
                 } else {

@@ -6,6 +6,6 @@ import lombok.Data;
 public class Product {
     private String name;
     private double price;
-    private int quantitySelling;
+    private int quantityOfGoodsThatActivateThePromotion;
     private double promoPrice;
 }
