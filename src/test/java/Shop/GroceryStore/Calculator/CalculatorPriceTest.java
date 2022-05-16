@@ -56,6 +56,8 @@ public class CalculatorPriceTest {
     }
 
     @Test
+    //actually you don't need to use mockito here because you don't have dependencies, you work in the method
+    //with method's attributes. You have just to create the input data and put in the method
     public void priceCalculationTestMockito() {
         CalculatorPrice calculatorPrice = new CalculatorPrice();
         Products products = Mockito.mock(Products.class);
